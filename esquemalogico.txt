@@ -1,0 +1,42 @@
+CLIENTE( _id, nome, sobrenome, telefone, rua, numeroCasa )
+
+PESSOA FISICA(_idCliente, CPF)
+	_idCliente referencia CLIENTE
+
+PESSOA JURIDICA(_idCliente, CNPJ)
+	_idCliente referencia CLIENTE
+
+SERVIÇO(_id, valor)
+
+SERVIÇO MENSAL( _idServiço, diaPagamento)
+	_idServiço referencia SERVIÇO
+
+SERVIÇO MENSAL( _idServiço, diaPagamento, anoQuitação)
+	_idServiço referencia SERVIÇO
+
+SERVIÇO SIMPLES(_idServiço, dia, mês, ano)
+	_idServiço referencia SERVIÇO
+
+CONTRATA SERVIÇO(_idServiço, _idCliente)
+	_idServiço referencia SERVIÇO
+	_idCliente referencia CLIENTE
+
+TRABALHO(_id, nome)
+
+SERVIÇO TRABALHO(_idServiço, _idTrabalho)
+	_idServiço referencia SERVIÇO
+	_idTrabalho referencia TRABALHO
+
+FUNCIONARIO( _id, _idCliente, nome, sobrenome, telefone, rua, numeroCasa, salario)
+	_idCliente referencia CLIENTE
+
+FUNCIONARIO TRABALHO( _idFuncionario, _idTrabalho)
+	_idFuncionario referencia FUNCIONARIO
+	_idTrabalho referencia TRABALHO
+
+DONO(_id, nome, sobrenome, cpf, telefone, rua, numeroCasa)
+
+CONTRATAÇÃO(_id, dia, mês, ano)
+
+DEMISSÃO(_id, dia, mês, ano)
+
