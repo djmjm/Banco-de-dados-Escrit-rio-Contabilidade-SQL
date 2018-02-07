@@ -36,7 +36,18 @@ FUNCIONARIO TRABALHO( _idFuncionario, _idTrabalho)
 
 DONO(_id, nome, sobrenome, cpf, telefone, rua, numeroCasa)
 
-CONTRATAÇÃO(_id, dia, mês, ano)
+CONTRATAÇÃO(_id, _idFuncionario, _idDono, dia, mês, ano)
+	_idDono referencia DONO
+	_idFuncionario referencia FUNCIONARIO
 
-DEMISSÃO(_id, dia, mês, ano)
+DEMISSÃO(_id, _idFuncionario, _idDono, dia, mês, ano)
+	_idDono referencia DONO
+	_idFuncionario referencia FUNCIONARIO
+
+CONSULTORIA(_id, _idDono, nome, CNPJ, valor)
+	_idDono referencia DONO
+
+CONSULTORIA TRABALHO(_idTrabalho, _idConsultoria)
+	_idTrabalho referencia TRABALHO
+	_idConsultoria referencia CONSULTORIA
 
