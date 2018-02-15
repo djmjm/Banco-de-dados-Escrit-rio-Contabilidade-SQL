@@ -6,7 +6,9 @@ PESSOA FISICA(_idCliente, CPF)
 PESSOA JURIDICA(_idCliente, CNPJ)
 	_idCliente referencia CLIENTE
 
-SERVIÇO(_id, valor)
+SERVIÇO(_id, valor, _idCliente, _idFuncionario)
+	_idCliente referencia Cliente
+	_idFuncionario referencia FUNCIONARIO
 
 SERVIÇO MENSAL( _idServiço, diaPagamento)
 	_idServiço referencia SERVIÇO
@@ -16,10 +18,6 @@ SERVIÇO MENSAL( _idServiço, diaPagamento, anoQuitação)
 
 SERVIÇO SIMPLES(_idServiço, dia, mês, ano)
 	_idServiço referencia SERVIÇO
-
-CONTRATA SERVIÇO(_idServiço, _idCliente)
-	_idServiço referencia SERVIÇO
-	_idCliente referencia CLIENTE
 
 TRABALHO(_id, nome)
 
@@ -31,14 +29,6 @@ FUNCIONARIO( _id, _idCliente, nome, sobrenome, telefone, rua, numeroCasa, salari
 	_idCliente referencia CLIENTE
 	_idDemissao referencia DEMISSAO
 	_idContratacao referencia CONTRATACAO
-
-CLIENTE FUNCIONARIO( _idCliente, _idFuncionario)
-	_idCliente referencia CLIENTE
-	_idFuncionario referencia FUNCIONARIO
-
-FUNCIONARIO TRABALHO( _idFuncionario, _idTrabalho)
-	_idFuncionario referencia FUNCIONARIO
-	_idTrabalho referencia TRABALHO
 
 DONO(_id, nome, sobrenome, cpf, telefone, rua, numeroCasa)
 
