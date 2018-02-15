@@ -27,8 +27,14 @@ SERVIÇO TRABALHO(_idServiço, _idTrabalho)
 	_idServiço referencia SERVIÇO
 	_idTrabalho referencia TRABALHO
 
-FUNCIONARIO( _id, _idCliente, nome, sobrenome, telefone, rua, numeroCasa, salario)
+FUNCIONARIO( _id, _idCliente, nome, sobrenome, telefone, rua, numeroCasa, salario, _idDemissao, _idContratacao)
 	_idCliente referencia CLIENTE
+	_idDemissao referencia DEMISSAO
+	_idContratacao referencia CONTRATACAO
+
+CLIENTE FUNCIONARIO( _idCliente, _idFuncionario)
+	_idCliente referencia CLIENTE
+	_idFuncionario referencia FUNCIONARIO
 
 FUNCIONARIO TRABALHO( _idFuncionario, _idTrabalho)
 	_idFuncionario referencia FUNCIONARIO
@@ -40,9 +46,8 @@ CONTRATAÇÃO(_id, _idFuncionario, _idDono, dia, mês, ano)
 	_idDono referencia DONO
 	_idFuncionario referencia FUNCIONARIO
 
-DEMISSÃO(_id, _idFuncionario, _idDono, dia, mês, ano)
+DEMISSÃO(_id, _idDono, dia, mês, ano)
 	_idDono referencia DONO
-	_idFuncionario referencia FUNCIONARIO
 
 CONSULTORIA(_id, _idDono, nome, CNPJ, valor)
 	_idDono referencia DONO
